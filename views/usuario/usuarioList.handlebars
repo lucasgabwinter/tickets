@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"> Login </th>
+            <th scope="col"> Senha</th>
+            <th scope="col"> Tipo</th>
+        </tr>
+    </thead>
+    {{#each usuarios}}
+    <tr>
+        <td scope="col">{{login}}</td>
+        <td scope="col">{{senha}}</td>
+        <td scope="col">{{tipo}}</td>
+    </tr>
+    {{/each}}
+</table>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>​
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  ​
+    <title>Sistema de Controle de Tickets</title>​
+</head>​
+
+<body>​
+    <center> ​
+        <h1> Sistema de Controle de Tickets </h1>
+        ​<label>Usuário Logado: {{login}}</label>​
+        <br><br>
+        {{#if admin}}
+        <a href="usuarioCreate"> <button> Cadastrar Usuário</button> </a> ​
+        {{/if}}
+        <a href="usuarioList"> <button> Listar Usuários</button> </a>
+        {{#if admin}}
+        <a href="categoriaCreate"> <button> Cadastrar Categoria</button> </a> ​
+        {{/if}}
+        <a href="categoriaList"> <button> Listar Categorias</button> </a>
+        <a href="ticketCreate"> <button> Cadastrar Tickets</button> </a>
+        <a href="ticketList"> <button> Listar Tickets</button> </a>​​
+        <a href="/logout"> Logout</a>
+        <br> <br>​
+        {{{body}}}
+        
+
+    </center>​
+</body>​
+
+</html>

@@ -1,0 +1,32 @@
+<form action="/ticketCreate" method="post">
+    Título: <input type="text" name="titulo">
+    <br> <br>
+
+    Descrição: <input type="text" name="descricao">
+    <br> <br>
+
+    Observação: <input type="text" name="observacao">
+    <br> <br>
+
+    Categoria: <select name="categoriaId">
+        {{#each categorias}}
+        <tr>
+            <option value={{id}}>{{nome}}</option>
+        </tr>
+        {{/each}}
+    </select>
+    <br> <br>
+
+    Técnico: <select name="tecnicoId">
+        {{#each usuarios}}
+        <tr>
+            <option value={{id}}>{{login}}</option>
+        </tr>
+        {{/each}}
+    </select>
+    <br> <br>
+
+    Concluído: <input type="checkbox" name="concluido">
+    <br> <br>
+    <input type="submit" class="btn btn-primary" value="Cadastrar" value="true">
+</form>

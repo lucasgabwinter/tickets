@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING, allowNull: true
         },
         categoriaId: {
-            type: Sequelize.INTEGER, allowNull: false
+            type: Sequelize.INTEGER, allowNull: true
         },
         tecnicoId: {
             type: Sequelize.INTEGER, allowNull: true

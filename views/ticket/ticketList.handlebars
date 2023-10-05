@@ -1,0 +1,50 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">ID da Categoria</th>
+            <th scope="col">ID do Técnico responsável</th>
+            <th scope="col">Observação</th>
+            <th scope="col">Ticket concluído</th>
+            {{#if admin}}
+            <th scope="col">Editar</th>
+            <th scope="col">Deletar</th>
+            {{/if}}
+        </tr>
+    </thead>
+
+    {{!--Caso seja administrador--}}
+    {{#if admin}}
+    <tbody>
+        {{#each tickets}}
+        <tr>
+            <td scope="col">{{titulo}}</td>
+            <td scope="col">{{descricao}}</td>
+            <td scope="col">{{categoriaId}}</td>
+            <td scope="col">{{tecnicoId}}</td>
+            <td scope="col">{{observacao}}</td>
+            <td scope="col">{{concluido}}</td>
+            <td><a href="ticketUpdate/{{id}}">Editar</a></td>
+            <td><a href="ticketDelete/{{id}}">Deletar</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+    {{/if}}
+
+    {{!--Caso seja usuário comum--}}
+    {{#if comum}}
+    <tbody>
+        {{#each tickets}}
+        <tr>
+            <td scope="col">{{titulo}}</td>
+            <td scope="col">{{descricao}}</td>
+            <td scope="col">{{categoriaId}}</td>
+            <td scope="col">{{tecnicoId}}</td>
+            <td scope="col">{{observacao}}</td>
+            <td scope="col">{{concluido}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+    {{/if}}
+</table>

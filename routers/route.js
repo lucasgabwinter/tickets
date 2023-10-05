@@ -7,8 +7,12 @@ const route = express.Router();
 db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
     db.Usuario.create({ login: 'admin', senha: '1234', tipo: 3 });
-    db.Usuario.create({ login: 'tecnico', senha: '1234', tipo: 2 });
+    db.Usuario.create({ login: 'tec_Gabriel', senha: '1234', tipo: 2 });
+    db.Usuario.create({ login: 'tec_Luan', senha: '1234', tipo: 2 });
     db.Usuario.create({ login: 'lucas', senha: '1234', tipo: 1 });
+    db.Usuario.create({ login: 'gabriella', senha: '1234', tipo: 1 });
+    db.Categoria.create({ nome: 'Lentidão' });
+    db.Categoria.create({ nome: 'Travamento' });
 });
 
 
@@ -43,6 +47,7 @@ route.get("/categoriaDelete/:id", controllerCategoria.getDelete);
 route.get("/ticketCreate", controllerTicket.getCreate);
 route.post("/ticketCreate", controllerTicket.postCreate);
 route.get("/ticketList", controllerTicket.getList);
-route.get("/ticketUpdate", controllerTicket.getUpdate);
+route.get("/ticketUpdate/:id", controllerTicket.getUpdate);
 route.post("/ticketUpdate", controllerTicket.postUpdate);
-route.get("/ticketDelete", controllerTicket.getDelete);
+route.get("/ticketDelete/:id", controllerTicket.getDelete);
+

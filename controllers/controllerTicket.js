@@ -18,18 +18,54 @@ module.exports = {
             console.log(err);
         });
     },
-
+    /*
+        async getList(req, res) {
+            db.Ticket.findAll().then(tickets => {
+                res.render('ticket/ticketList', { tickets: tickets.map(tick => tick.toJSON()) });
+            }).catch((err) => {
+                console.log(err);
+            });
+        },
+        */
     async getList(req, res) {
-        db.Ticket.findAll().then(tickets => {
-            res.render('ticket/ticketList', { tickets: tickets.map(tick => tick.toJSON()) });
-        }).catch((err) => {
+        try {
+            const categorias = await db.Categoria.findAll();
+            const usuarios = await db.Usuario.findAll();
+            const tickets = await db.Ticket.findAll();
+
+            const ticketsComNomes = tickets.map(ticket => {
+                const tecnico = usuarios.find(usuario => usuario.id === ticket.tecnicoId);
+                const categoria = categorias.find(categoria => categoria.id === ticket.categoriaId);
+
+                return {
+                    ...ticket.dataValues,
+                    tecnicoNome: tecnico ? tecnico.nome : 'Técnico não encontrado',
+                    categoriaNome: categoria ? categoria.nome : 'Categoria não encontrada',
+                };
+            });
+
+            res.render('ticket/ticketList', {
+                tickets: ticketsComNomes,
+                usuarios: usuarios.map(usuario => usuario.toJSON()),
+                categorias: categorias.map(categoria => categoria.toJSON()),
+            });
+        } catch (err) {
             console.log(err);
-        });
+            res.status(500).send('Erro ao obter tickets');
+        }
     },
 
+
+
     async getUpdate(req, res) {
+        var categorias = await db.Categoria.findAll();
+        var usuarios = await db.Usuario.findAll();
         await db.Ticket.findByPk(req.params.id).then(
-            ticket => res.render('ticket/ticketUpdate', { ticket: ticket.dataValues })
+            ticket => res.render('ticket/ticketUpdate', {
+                ticket: ticket.dataValues,
+                usuarios: usuarios.map(usuario => usuario.toJSON()),
+                categorias: categorias.map(categoria => categoria.toJSON())
+            })
         ).catch(function (err) {
             console.log(err);
         });

@@ -1,0 +1,42 @@
+<form action="/ticketUpdate" method="post">
+    <input type="hidden" name="id" value={{ticket.id}}>
+    <div class="form-group" style="width: 80%;">
+
+        Nome:
+        <input type="text" class="form-control"
+        name="titulo" value="{{ticket.titulo}}">
+        <br><br>
+
+        Descrição:
+        <input type="text" class="form-control"
+        name="descricao" value="{{ticket.descricao}}">
+        <br><br>
+
+        Observação:
+        <input type="text" class="form-control"
+        name="observacao" value="{{ticket.observacao}}">
+        <br><br>
+
+        Categoria: <select name="categoriaId">
+            {{#each categorias}}
+            <tr>
+                <option value={{id}}>{{nome}}</option>
+            </tr>
+            {{/each}}
+        </select>
+        <br> <br>
+        
+        Técnico: <select name="tecnicoId">
+            {{#each usuarios}}
+            <tr>
+                <option value={{id}}>{{login}}</option>
+            </tr>
+            {{/each}}
+        </select>
+        <br> <br>
+        
+        Concluído: <input type="checkbox" name="concluido">
+        <br> <br>
+    </div>
+    <button type="submit" class="btn btn-primary">Editar</button>
+</form>

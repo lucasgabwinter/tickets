@@ -20,10 +20,8 @@
             </tr>
         {{/each}}
     </tbody>
-    {{/if}}
-
-    {{!--Caso seja usuário comum--}}
-    {{#if comum}}
+    {{!--Caso seja usuário comum ou tecnico--}}
+    {{else}}
         <tbody>
             {{#each categorias}}
             <tr>
@@ -32,4 +30,5 @@
             {{/each}}
         </tbody>
     {{/if}}
+
 </table>

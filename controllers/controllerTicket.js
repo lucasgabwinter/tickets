@@ -12,6 +12,10 @@ module.exports = {
     },
 
     async postCreate(req, res) {
+        //------------------------------------------------------------------- CORREÇÃO CHECKBOX
+        const valorConcluido = req.body.concluido === 'true';
+        req.body.concluido = valorConcluido;
+        //-------------------------------------------------------------------
         db.Ticket.create(req.body).then(() => {
             //res.redirect('/home');
             res.redirect('/ticketList');
@@ -28,16 +32,17 @@ module.exports = {
             });
         },
         */
-    async getList(req, res) {
-        try {
-            const categorias = await db.Categoria.findAll();
-            const usuarios = await db.Usuario.findAll();
-            const tickets = await db.Ticket.findAll();
 
-            const ticketsComNomes = tickets.map(ticket => {
-                const tecnico = usuarios.find(usuario => usuario.id === ticket.tecnicoId);
-                const categoria = categorias.find(categoria => categoria.id === ticket.categoriaId);
-
+       async getList(req, res) {
+           try {
+               const categorias = await db.Categoria.findAll();
+               const usuarios = await db.Usuario.findAll();
+               const tickets = await db.Ticket.findAll();
+               
+               const ticketsComNomes = tickets.map(ticket => {
+                   const tecnico = usuarios.find(usuario => usuario.id === ticket.tecnicoId);
+                   const categoria = categorias.find(categoria => categoria.id === ticket.categoriaId);
+                   
                 return {
                     ...ticket.dataValues,
                     tecnicoNome: tecnico ? tecnico.nome : 'Técnico não encontrado',
@@ -73,10 +78,14 @@ module.exports = {
     },
 
     async postUpdate(req, res) {
+        //--------------------------------------------------------------- CORREÇÃO CHECKBOX
+        const valorConcluido = req.body.concluido === 'true';
+        req.body.concluido = valorConcluido;
+        //---------------------------------------------------------------
         await db.Ticket.update(req.body, { where: { id: req.body.id } }).then(
             //res.render('home')
             res.redirect('/ticketList')
-        ).catch(function (err) {
+            ).catch(function (err) {
             console.log(err);
         });
     },
@@ -90,3 +99,7 @@ module.exports = {
         });
     }
 }    
+
+
+//------------------------------------------------------------------------
+

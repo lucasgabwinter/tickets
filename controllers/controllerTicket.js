@@ -13,8 +13,7 @@ module.exports = {
 
     async postCreate(req, res) {
         //------------------------------------------------------------------- CORREÇÃO CHECKBOX
-        const valorConcluido = req.body.concluido === 'true';
-        req.body.concluido = valorConcluido;
+        req.body.concluido = false;
         //-------------------------------------------------------------------
         db.Ticket.create(req.body).then(() => {
             //res.redirect('/home');
@@ -99,7 +98,3 @@ module.exports = {
         });
     }
 }    
-
-
-//------------------------------------------------------------------------
-

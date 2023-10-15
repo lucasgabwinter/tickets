@@ -6,13 +6,13 @@ module.exports = {
     sessionControl(req, res, next) {
         if (req.session.login != undefined) {
             res.locals.login = req.session.login;
-            if (req.session.tipo == 3) {
+            if (req.session.tipo == "3") {
                 res.locals.admin = "admin"
             }
-            if (req.session.tipo == 2) {
+            if (req.session.tipo == "2") {
                 res.locals.tecnico = "tecnico"
             }
-            if (req.session.tipo == 1) {
+            if (req.session.tipo == "1") {
                 res.locals.comum = "comum"
             }
             next();

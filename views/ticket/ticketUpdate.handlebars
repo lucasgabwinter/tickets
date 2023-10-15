@@ -3,18 +3,11 @@
     <div class="form-group" style="width: 80%;">
 
         Nome:
-        <input type="text" class="form-control"
-        name="titulo" value="{{ticket.titulo}}">
+        <input type="text" class="form-control" name="titulo" value="{{ticket.titulo}}">
         <br><br>
 
         Descrição:
-        <input type="text" class="form-control"
-        name="descricao" value="{{ticket.descricao}}">
-        <br><br>
-
-        Observação:
-        <input type="text" class="form-control"
-        name="observacao" value="{{ticket.observacao}}">
+        <input type="text" class="form-control" name="descricao" value="{{ticket.descricao}}">
         <br><br>
 
         Categoria: <select name="categoriaId">
@@ -25,7 +18,9 @@
             {{/each}}
         </select>
         <br> <br>
-        
+
+        {{!-- SE FOR ADMIN: --}}
+        {{#if admin}}
         Técnico: <select name="tecnicoId">
             {{#each usuarios}}
             <tr>
@@ -33,10 +28,19 @@
             </tr>
             {{/each}}
         </select>
+        {{/if}}
         <br> <br>
-        
-        Concluído: <input type="checkbox" name="concluido">
+
+        {{!-- SE FOR TECNICO: --}}
+        {{#if tecnico}}
+        Observação:
+        <input type="text" class="form-control" name="observacao" value="{{ticket.observacao}}">
+        <br><br>
+        Concluído: <input type="checkbox" name="concluido" value="true">
+        {{/if}}
         <br> <br>
     </div>
     <button type="submit" class="btn btn-primary">Editar</button>
+    <a href="/home"><button type="button" class="btn btn-primary">Voltar</button></a>
 </form>
+

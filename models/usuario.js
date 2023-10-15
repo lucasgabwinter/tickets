@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING, allowNull: false
         },
         tipo: {
-            type: Sequelize.INTEGER, allowNull: false
+            type: Sequelize.STRING, allowNull: false
         }
     });
     return Usuario;

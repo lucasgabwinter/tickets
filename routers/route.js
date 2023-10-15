@@ -24,7 +24,7 @@ route.get("/home", function (req, res) {
         res.render('home')
     }
     else
-        res.redirect('/');
+    res.redirect('/');
 });
 
 //Controller Usuario

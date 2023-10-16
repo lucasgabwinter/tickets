@@ -17,6 +17,8 @@ module.exports = {
             }
             next();
         }
+        else if ((req.url == '/usuarioCreate') && (req.method == 'GET')) next();
+        else if ((req.url == '/usuarioCreate') && (req.method == 'POST')) next();
         else if ((req.url == '/') && (req.method == 'GET')) next();
         else if ((req.url == '/login') && (req.method == 'POST')) next();
         else res.redirect('/');

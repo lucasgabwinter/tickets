@@ -14,6 +14,7 @@
     </select>
     <br> <br>
 
+    {{#if admin}}
     Técnico: <select name="tecnicoId">
         {{#each usuarios}}
         <tr>
@@ -21,6 +22,18 @@
         </tr>
         {{/each}}
     </select>
+    {{/if}}
+
+    {{#if tecnico}}
+    Técnico: <select name="tecnicoId">
+        {{#each usuarios}}
+        <tr>
+            <option value={{id}}>{{login}}</option>
+        </tr>
+        {{/each}}
+    </select>
+    {{/if}}
+    
     <br> <br>
 
     {{!-- Concluído: 

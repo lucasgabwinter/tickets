@@ -1,31 +1,34 @@
-<form action="/ticketCreate" method="post">
-    Título: <input type="text" name="titulo">
-    <br> <br>
+<h2>Criar Ticket</h2>
+<br>
 
-    Descrição: <input type="text" name="descricao">
-    <br> <br>
+<form action="/ticketCreate" method="post" style="width: 30vw;"
 
-    Categoria: <select name="categoriaId">
+    <label class="form-label">Título:</label>
+    <input class="form-control" type="text" name="titulo" placeholder="titulo">
+
+    <label class="form-label">Descrição:</label>
+    <input class="form-control" type="text" name="descricao" placeholder="descricao">
+
+    <label class="form-label">Categoria:</label>
+    <select id="categoriaId" class="form-select">
         {{#each categorias}}
         <tr>
             <option value={{id}}>{{nome}}</option>
         </tr>
         {{/each}}
     </select>
-    <br> <br>
 
-    Técnico: <select name="tecnicoId">
+    <label class="form-label">Técnico:</label>
+    <select id="tecnicoId" class="form-select">
         {{#each usuarios}}
         <tr>
             <option value={{id}}>{{login}}</option>
         </tr>
         {{/each}}
     </select>
-    <br> <br>
 
-    {{!-- Concluído: 
-    <input type="checkbox" name="concluido" value="true"> --}}
     <br> <br>
-    <input type="submit" class="btn btn-primary" value="Cadastrar">
-    <a href="home"><button type="button" class="btn btn-primary">Voltar</button></a>
+    <input type="submit" class="btn btn-secondary" value="Cadastrar">
+    <br><br>
+    <a href="home"><button type="button" class="btn btn-outline-danger">Voltar</button></a>
 </form>

@@ -80,6 +80,7 @@
         <thead>
             <tr>
                 <th scope="col">Título</th>
+                <th scope="col">Descrição</th>
                 <th scope="col">Observação</th>
                 <th scope="col">Ticket concluído</th>
             </tr>
@@ -87,8 +88,8 @@
         {{#each tickets}}
         <tr>
             <td scope="col">{{titulo}}</td>
-            {{!-- <td scope="col">{{descricao}}</td>
-            <td scope="col">{{categoriaId}}</td>
+            <td scope="col">{{descricao}}</td>
+            {{!--<td scope="col">{{categoriaId}}</td>
             <td scope="col">{{tecnicoId}}</td> --}}
             <td scope="col">{{observacao}}</td>
             <td scope="col">{{concluido}}</td>

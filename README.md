@@ -27,8 +27,6 @@
 
  - FEITO add botão de "voltar"
  - FEITO trocar a rota para a listagem dps de cria e edita
-
-## Tentei e ainda não consegui:
- - fazer aparecer só tecnicos na criação do ticket
+ - FEITO fazer aparecer só tecnicos na criação do ticket
 --------------
 --------------

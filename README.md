@@ -19,7 +19,7 @@
 ------------
 ------------
 # Lista de tarefas:
- - fazer um botão de "criar usuario" no login e deixar o tipo "comum"
+ - FEITO fazer um botão de "criar usuario" no login e deixar o tipo "comum"
 
  - tirar o concluir ticket do create, e add no update do tecnico (da problema na criação do ticket)
 

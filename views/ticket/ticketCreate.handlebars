@@ -18,7 +18,9 @@
     Técnico: <select name="tecnicoId">
         {{#each usuarios}}
         <tr>
+        {{#ifCond tipo '2'}}
             <option value={{id}}>{{login}}</option>
+        {{/ifCond}}
         </tr>
         {{/each}}
     </select>
@@ -28,7 +30,9 @@
     Técnico: <select name="tecnicoId">
         {{#each usuarios}}
         <tr>
-            <option value={{id}}>{{login}}</option>
+            {{#ifCond tipo '2'}}
+                <option value={{id}}>{{login}}</option>
+            {{/ifCond}}
         </tr>
         {{/each}}
     </select>

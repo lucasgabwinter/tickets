@@ -28,3 +28,10 @@ app.use(
 app.listen(8081, function () {
     console.log("Servidor no http://localhost:8081")
 });
+Handlebars = require('handlebars');
+Handlebars.registerHelper('ifCond', function (v1, v2, options) {
+    if (v1 === v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});

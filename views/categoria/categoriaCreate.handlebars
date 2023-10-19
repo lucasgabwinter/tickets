@@ -1,10 +1,23 @@
-<form action="/categoriaCreate" method="post">
+<h2>Criar Categoria</h2>
+<br>
+
+<form action="/categoriaCreate" method="post" style="width: 30vw;">
+
+    <label for="inputNome" class="form-label">Nome:</label>
+    <input class="form-control" type="text" id="inputNome" name="nome" placeholder="nome da categoria"
+        aria-label="default input example">
+    <br>
+    <input type="submit" class="btn btn-secondary" value="Cadastrar">
+    <br><br>
+    <a href="home"><button type="button" class="btn btn-outline-danger">Voltar</button></a>
+
+{{!-- <form action="/categoriaCreate" method="post">
     <div class="form-group">
         <label for="inputNome">Nome</label>
         <input type="text" id="inputNome" name="nome">
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
-    <a href="home"><button type="button" class="btn btn-primary">Voltar</button></a>
+    <a href="home"><button type="button" class="btn btn-primary">Voltar</button></a> --}}
     
 </form>

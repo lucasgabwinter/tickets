@@ -1,48 +1,55 @@
-<form action="/ticketCreate" method="post">
-    Título: <input type="text" name="titulo">
-    <br> <br>
+<h2>Criar Ticket</h2>
+<br>
 
-    Descrição: <input type="text" name="descricao">
-    <br> <br>
+<form action="/ticketCreate" method="post" style="width: 30vw;">
 
-    Categoria: <select name="categoriaId">
+    <label class="form-label">Título:</label>
+    <input class="form-control" type="text" name="titulo" placeholder="titulo">
+
+    <label class="form-label">Descrição:</label>
+    <input class="form-control" type="text" name="descricao" placeholder="descricao">
+
+    <label class="form-label">Categoria:</label>
+    <select name="categoriaId" class="form-select">
         {{#each categorias}}
         <tr>
             <option value={{id}}>{{nome}}</option>
         </tr>
         {{/each}}
     </select>
-    <br> <br>
 
     {{#if admin}}
-    Técnico: <select name="tecnicoId">
-        {{#each usuarios}}
-        <tr>
-        {{#ifCond tipo '2'}}
-            <option value={{id}}>{{login}}</option>
-        {{/ifCond}}
-        </tr>
-        {{/each}}
-    </select>
-    {{/if}}
-
-    {{#if tecnico}}
-    Técnico: <select name="tecnicoId">
-        {{#each usuarios}}
-        <tr>
-            {{#ifCond tipo '2'}}
+    <label class="form-label">Técnico:</label>
+    {{!-- <select id="tecnicoId" class="form-select"> --}}
+        <select class="form-select" name="tecnicoId">
+            {{#each usuarios}}
+            <tr>
+                {{#ifCond tipo '2'}}
                 <option value={{id}}>{{login}}</option>
-            {{/ifCond}}
-        </tr>
-        {{/each}}
-    </select>
-    {{/if}}
-    
-    <br> <br>
+                {{/ifCond}}
+            </tr>
+            {{/each}}
+        </select>
+        {{/if}}
 
-    {{!-- Concluído: 
-    <input type="checkbox" name="concluido" value="true"> --}}
-    <br> <br>
-    <input type="submit" class="btn btn-primary" value="Cadastrar">
-    <a href="home"><button type="button" class="btn btn-primary">Voltar</button></a>
+        {{#if tecnico}}
+        <label class="form-label">Técnico:</label>
+        <select class="form-select" name="tecnicoId">
+            {{#each usuarios}}
+            <tr>
+                {{#ifCond tipo '2'}}
+                <option value={{id}}>{{login}}</option>
+                {{/ifCond}}
+            </tr>
+            {{/each}}
+        </select>
+        {{/if}}
+
+        <br> <br>
+
+        <br> <br>
+        <input type="submit" class="btn btn-secondary" value="Cadastrar">
+        <br><br>
+        <a href="home"><button type="button" class="btn btn-outline-danger">Voltar</button></a>
+
 </form>

@@ -1,9 +1,30 @@
-<form action="/login" method="post">
-    Login: <input type="text" name="login" id="login">
-    <br><br>
-    Senha: <input type="password" name="senha">
-    <input type="submit" value="Logar">
-    <br><br>
-    {{!-- <button type="button">Criar usuário</button> --}}
+<form action="/login" method="post" style="width: 30vw;">
+
+
+    <div class="col-sm-10">
+
+        <label class="form-label">Login:</label>
+        <input class="form-control" type="text" name="login" id="login">
+
+        <label class="form-label">Senha:</label>
+        <input type="password" name="senha" class="form-control" id="inputPassword">
+    </div>
+
+    <br> <br>
+    <input type="submit" class="btn btn-secondary" value="Logar">
 </form>
-    <a href="usuarioCreate"> <button> Cadastrar Usuário</button> </a>
+<br>
+<a href="usuarioCreate"><button type="button" class="btn btn-outline-success">Cadastrar Usuário</button></a>
+
+
+
+
+{{!-- Login: <input type="text" name="login" id="login">
+<br><br>
+Senha: <input type="password" name="senha">
+
+<input type="submit" value="Logar">
+<br><br>
+</form>
+<br><br><br>
+<a href="usuarioCreate"> <button class="btn btn-primary"> Cadastrar Usuário</button> </a> --}}

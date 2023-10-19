@@ -1,7 +1,7 @@
 <h2>Criar Ticket</h2>
 <br>
 
-<form action="/ticketCreate" method="post" style="width: 30vw;"
+<form action="/ticketCreate" method="post" style="width: 30vw;">
 
     <label class="form-label">Título:</label>
     <input class="form-control" type="text" name="titulo" placeholder="titulo">
@@ -18,17 +18,38 @@
         {{/each}}
     </select>
 
+    {{#if admin}}
     <label class="form-label">Técnico:</label>
-    <select id="tecnicoId" class="form-select">
-        {{#each usuarios}}
-        <tr>
-            <option value={{id}}>{{login}}</option>
-        </tr>
-        {{/each}}
-    </select>
+    {{!-- <select id="tecnicoId" class="form-select"> --}}
+        <select class="form-select" name="tecnicoId">
+            {{#each usuarios}}
+            <tr>
+                {{#ifCond tipo '2'}}
+                <option value={{id}}>{{login}}</option>
+                {{/ifCond}}
+            </tr>
+            {{/each}}
+        </select>
+        {{/if}}
 
-    <br> <br>
-    <input type="submit" class="btn btn-secondary" value="Cadastrar">
-    <br><br>
-    <a href="home"><button type="button" class="btn btn-outline-danger">Voltar</button></a>
+        {{#if tecnico}}
+        <label class="form-label">Técnico:</label>
+        <select class="form-select" name="tecnicoId">
+            {{#each usuarios}}
+            <tr>
+                {{#ifCond tipo '2'}}
+                <option value={{id}}>{{login}}</option>
+                {{/ifCond}}
+            </tr>
+            {{/each}}
+        </select>
+        {{/if}}
+
+        <br> <br>
+
+        <br> <br>
+        <input type="submit" class="btn btn-secondary" value="Cadastrar">
+        <br><br>
+        <a href="home"><button type="button" class="btn btn-outline-danger">Voltar</button></a>
+
 </form>

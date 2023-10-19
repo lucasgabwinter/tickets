@@ -1,9 +1,30 @@
-<form action="/categoriaUpdate" method="post">
+<h2>Alterar Categoria</h2>
+<br>
+
+<form action="/categoriaUpdate" method="post" style="width: 30vw;">
+
     <input type="hidden" name="id" value={{categoria.id}}>
+
+    <div class="form-group">
+        <label for="inputNome" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="inputNome" name="nome" value="{{categoria.nome}}">
+        {{!-- <input class="form-control" type="text" id="inputNome" name="nome" value="{{categoria.nome}}"
+            aria-label="default input example">
+        <br> --}}
+    </div>
+<br>
+    <input type="submit" class="btn btn-secondary" value="Editar">
+    <br><br>
+    <a href="/home"><button type="button" class="btn btn-outline-danger">Voltar</button></a>
+
+
+
+
+    {{!-- <input type="hidden" name="id" value={{categoria.id}}>
     <div class="form-group">
         <label for="inputNome">Nome</label>
         <input type="text" class="form-control" id="inputNome" name="nome" value="{{categoria.nome}}">
     </div>
     <button type="submit" class="btn btn-primary">Editar</button>
-    <a href="/home"><button type="button" class="btn btn-primary">Voltar</button></a>
+    <a href="/home"><button type="button" class="btn btn-primary">Voltar</button></a> --}}
 </form>

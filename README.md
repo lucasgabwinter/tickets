@@ -19,7 +19,7 @@
 ------------
 ------------
 # Lista de tarefas:
- - fazer um botão de "criar usuario" no login e deixar o tipo "comum"
+ - FEITO fazer um botão de "criar usuario" no login e deixar o tipo "comum"
 
  - tirar o concluir ticket do create, e add no update do tecnico (da problema na criação do ticket)
 
@@ -27,8 +27,6 @@
 
  - FEITO add botão de "voltar"
  - FEITO trocar a rota para a listagem dps de cria e edita
-
-## Tentei e ainda não consegui:
- - fazer aparecer só tecnicos na criação do ticket
+ - FEITO fazer aparecer só tecnicos na criação do ticket
 --------------
 --------------

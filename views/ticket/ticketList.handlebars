@@ -1,20 +1,6 @@
 <table class="table table-dark table-hover" style="width: 80vw;">
     <h2>Lista de Tickets</h2>
     <br>
-    {{!-- <thead>
-        <tr>
-            <th scope="col">Título</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">ID da Categoria</th>
-            <th scope="col">ID do Técnico responsável</th>
-            <th scope="col">Observação</th>
-            <th scope="col">Ticket concluído</th>
-            {{#if admin}}
-            <th scope="col">Editar</th>
-            <th scope="col">Deletar</th>
-            {{/if}}
-        </tr>
-    </thead> --}}
 
     {{!--Caso seja administrador--}}
     {{#if admin}}
@@ -89,8 +75,6 @@
         <tr>
             <td scope="col">{{titulo}}</td>
             <td scope="col">{{descricao}}</td>
-            {{!--<td scope="col">{{categoriaId}}</td>
-            <td scope="col">{{tecnicoId}}</td> --}}
             <td scope="col">{{observacao}}</td>
             <td scope="col">{{concluido}}</td>
         </tr>

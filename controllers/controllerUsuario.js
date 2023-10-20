@@ -38,36 +38,7 @@ module.exports = {
             console.log(err);
         });
     },
-    /* async postLogin(req, res) {
-        var user = {
-            login: req.body.login
-        }
-        db.Usuario.findAll({ where: { login: req.body.login, senha: req.body.senha } }
-        ).then(usuarios => {
-            if (usuarios.length > 0) {
-                req.session.login = req.body.login;
-                res.locals.login = req.body.login;
-                if (usuarios[0].dataValues.tipo == 3) {
-                    req.session.tipo = usuarios[0].dataValues.tipo;
-                    res.locals.admin = true;
-                }
-                if (usuarios[0].dataValues.tipo == 2) {
-                    req.session.tipo = usuarios[0].dataValues.tipo;
-                    res.locals.tecnico = true;
-                }
-                if (usuarios[0].dataValues.tipo != 2 &&
-                    usuarios[0].dataValues.tipo != 3) {
-                    req.session.tipo = usuarios[0].dataValues.tipo;
-                    res.locals.comum = true;
-                }
-                res.render('home');
-            } else
-                res.redirect('/');
-        }).catch((err) => {
-            console.log(err);
-        });
-    }, */
-
+   
     async getCreate(req, res) {
         res.render('usuario/usuarioCreate');
     },
@@ -92,23 +63,3 @@ module.exports = {
         });
     }
 }   
-
-
-
-
-
-
-
-
-
-
-/* async function renderPage(req, res) {
-    try {
-        const tecnicos = await db.Usuario.findAll({ where: { tipo: "2" } });
-        res.render('sua_pagina', { usuarios: tecnicos });
-    } catch (error) {
-        console.error(error);
-        res.redirect('/');
-    }
-}
- */

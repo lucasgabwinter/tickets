@@ -12,25 +12,13 @@ module.exports = {
     },
 
     async postCreate(req, res) {
-        //------------------------------------------------------------------- CORREÇÃO CHECKBOX
         req.body.concluido = false;
-        //-------------------------------------------------------------------
         db.Ticket.create(req.body).then(() => {
-            //res.redirect('/home');
             res.redirect('/ticketList');
         }).catch((err) => {
             console.log(err);
         });
     },
-    /*
-        async getList(req, res) {
-            db.Ticket.findAll().then(tickets => {
-                res.render('ticket/ticketList', { tickets: tickets.map(tick => tick.toJSON()) });
-            }).catch((err) => {
-                console.log(err);
-            });
-        },
-        */
 
        async getList(req, res) {
            try {
@@ -77,12 +65,9 @@ module.exports = {
     },
 
     async postUpdate(req, res) {
-        //--------------------------------------------------------------- CORREÇÃO CHECKBOX
         const valorConcluido = req.body.concluido === 'true';
         req.body.concluido = valorConcluido;
-        //---------------------------------------------------------------
         await db.Ticket.update(req.body, { where: { id: req.body.id } }).then(
-            //res.render('home')
             res.redirect('/ticketList')
             ).catch(function (err) {
             console.log(err);
@@ -91,7 +76,6 @@ module.exports = {
 
     async getDelete(req, res) {
         await db.Ticket.destroy({ where: { id: req.params.id } }).then(
-            //res.redirect('/home')
             res.redirect('/ticketList')
         ).catch(err => {
             console.log(err);
